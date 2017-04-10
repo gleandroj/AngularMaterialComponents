@@ -7,10 +7,10 @@ Change to your project's root directory.
 
 ```bash
 # To install latest
-npm install angular-material-components
+npm install angular-material-simple-components
 
 # To install latest and update package.json
-npm install angular-material-components --save
+npm install angular-material-simple-components --save
 ```
 
 #### setup
