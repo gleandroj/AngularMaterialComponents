@@ -1,0 +1,130 @@
+<ng-form name="_form">
+
+    <div class="header">
+        <md-icon class="material-icons" ng-if="$component.icon">{{ $component.icon }}</md-icon>
+        <label ng-class="{'is-error': $component.invalid && $component.touched}" for="{{ $component.name }}">{{ $component.label }} <span ng-if="$component.isRequired" style="font-size: 13px; vertical-align: top;">*</span></label>
+    </div>
+
+    <md-card >
+        <md-card-header  layout="row" layout-align="center center" layout-wrap>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'formatBlock', 'H1')"  class="md-icon-button action-button" ><b>H1</b></md-button></div>
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'formatBlock', 'H2')"  class="md-icon-button action-button" ><b>H2</b></md-button></div>
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'formatBlock', 'h3')"  class="md-icon-button action-button" ><b>H3</b></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn" ng-class="{'toggle': $component.isElementTag('B')}"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'bold')"  class="md-icon-button action-button" ><md-icon class="material-icons" >format_bold</md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn" ng-class="{'toggle': $component.isElementTag('I')}"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'italic')"  class="md-icon-button action-button"><md-icon class="material-icons">format_italic</md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn" ng-class="{'toggle': $component.isElementTag('U')}"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event,'underline')"  class="md-icon-button action-button"><md-icon class="material-icons">format_underlined</md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'justifyLeft')"  class="md-icon-button action-button"><md-icon class="material-icons">format_align_left</md-icon></md-button></div>
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'justifyFull')"  class="md-icon-button action-button"><md-icon class="material-icons">format_align_justify</md-icon></md-button></div>
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'justifyRight')"  class="md-icon-button action-button"><md-icon class="material-icons">format_align_right</md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'justifyCenter')"  class="md-icon-button action-button"><md-icon class="material-icons">format_align_center</md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'insertUnorderedList')"  class="md-icon-button action-button"><md-icon class="material-icons">format_list_bulleted</md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'outdent')"  class="md-icon-button action-button"><md-icon class="material-icons">format_indent_decrease</md-icon></md-button></div>
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.exec($event, 'indent')"  class="md-icon-button action-button"><md-icon class="material-icons">format_indent_increase</md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn" ng-if="!$component.isElementTag('A')"><md-button aria-label="action"  ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-click="$component.inserLink($event)"  class="md-icon-button action-button"><md-icon class="material-icons">insert_link</md-icon></md-button></div>
+                <div class="tgbtn" ng-if="$component.isElementTag('A')"><md-button aria-label="action"  ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-click="$component.exec($event, 'unlink')"  class="md-icon-button action-button"><md-icon md-svg-src="{{ $component.link_off_icon }}" aria-hidden="true"> </md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <label ng-disabled="!$component.canDoAction || $component.isDisabled" for="colorpicker" class="md-button md-icon-button action-button" onmousedown="event.preventDefault();"><md-icon class="material-icons">format_color_text</md-icon></label>
+                <input ng-disabled="!$component.canDoAction || $component.isDisabled" name="colorpicker" id="colorpicker" type="color" class="hide" onchange="document.execCommand('foreColor', false, event.target.value)">
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-mousedown="$component.clean($event)"  class="md-icon-button action-button"><md-icon class="material-icons">format_clear</md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn"><md-button aria-label="action" ng-disabled="$component.isDisabled" unselectable="on" ng-mousedown="$component.insertImage($event)"  class="md-icon-button action-button"><md-icon class="material-icons">image</md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn" ng-class="{'toggle': $component.showHtml}" ><md-button aria-label="action" ng-disabled="$component.isDisabled" unselectable="on" ng-mousedown="$component.toggleHtml()"  class="md-icon-button action-button"><md-icon md-svg-src="{{ $component.xml_icon }}" aria-hidden="true"> </md-icon></md-button></div>
+            </md-card>
+
+            <md-card layout="row" class="action">
+                <div class="tgbtn" layout-margin><md-checkbox ng-disabled="$component.isDisabled" ng-model="$component.preview">Visualizar</md-checkbox></div>
+            </md-card>
+
+        </md-card-header>
+
+        <md-content layout-padding>
+            <div
+                    ng-hide="$component.showHtml"
+                    class="htmlTextArea"
+
+                    id="inputElement"
+
+                    ng-class="{'lostFocus': $component.preview || $component.isDisabled}"
+                    contenteditable="{{ !$component.isDisabled && !$component.preview }}"
+                    ng-disabled="$component.isDisabled"
+
+                    ng-focus="$component.isDisabled || $component.setTouched()"
+                    ng-click="$component.isDisabled || $component.setTouched()"
+
+                    ng-model="$component.value"
+                    ng-change="$component.onChange()"></div>
+
+            <textarea
+                    ng-show="$component.showHtml"
+
+                    name="{{ $component.name }}"
+                    aria-label="{{ $component.name }}"
+                    id="{{ $component.name }}"
+
+                    ng-show="$component.showHtml"
+
+                    ng-class="{'lostFocus': $component.preview}"
+                    class="htmlTextArea"
+
+                    ng-model="$component.value"
+                    ng-model-options="{allowInvalid: true, debounce: 250}"
+                    ng-change="$component.onChange()"
+
+                    ng-required="$component.isRequired"
+                    ng-disabled="$component.isDisabled"
+
+                    ng-focus="$component.isDisabled || $component.setTouched()"
+                    ng-click="$component.isDisabled || $component.setTouched()"
+
+                    ng-minlength="{{ $component.minLength }}"
+                    ng-maxlength="{{ $component.maxLength }}"
+
+                    maxlength="{{ $component.maxLength }}">
+            </textarea>
+        </md-content>
+
+       <md-input-container flex layout-align="center center" layout="column" >
+
+           <div ng-messages="$component.errors" ng-show="$component.dirty || $component.touched" >
+               <ng-transclude></ng-transclude>
+           </div>
+
+        </md-input-container>
+    </md-card>
+</ng-form>

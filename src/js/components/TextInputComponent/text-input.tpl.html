@@ -1,0 +1,31 @@
+<ng-form name="_form" ng-cloak>
+    <md-input-container flex class="md-block" md-is-error="$component.invalid && $component.touched" md-no-float="$component.noFloat">
+        <md-icon class="material-icons" ng-if="$component.icon">{{ $component.icon }}</md-icon>
+        <input
+                type="{{$component.type}}"
+                placeholder="{{$component.label}}"
+
+                name="{{ $component.name }}"
+                id="{{ $component.name }}"
+
+                ng-model="$component.value"
+                ng-change="$component.onChange()"
+                ng-model-options="{allowInvalid: true, debounce: 250}"
+
+                ng-required="$component.isRequired"
+                ng-disabled="$component.isDisabled"
+
+                ng-minlength="{{ $component.minLength }}"
+                ng-maxlength="{{ $component.maxLength }}"
+
+                md-maxlength="{{ $component.maxLength }}"
+
+                maxlength="{{ $component.maxLength }}"
+                ng-focus="$component.isDisabled || $component.setTouched()"
+                ng-click="$component.isDisabled || $component.setTouched()" >
+
+        <div ng-messages="$component.errors" ng-show="$component.dirty || $component.touched" >
+            <ng-transclude></ng-transclude>
+        </div>
+    </md-input-container>
+</ng-form>

@@ -1,0 +1,27 @@
+<ng-form name="_form" flex-gt-xs>
+    <md-input-container flex="auto" class="md-block date-picker-row" md-no-float="$component.noFloat" ng-class="{'md-input-invalid': $component.invalid && ($component.dirty || $component.touched)}">
+        <label>{{ $component.label }}</label>
+        <md-datepicker
+                       name="{{ $component.name }}"
+                       id="{{ $component.name }}"
+
+                       md-date-filter="$component.filterDate"
+
+                       ng-required="$component.isRequired"
+                       ng-disabled="$component.isDisabled"
+
+                       md-date="{{$component.maskDate}}"
+                       md-mask="39/19/9999"
+                       ng-model="$component.value"
+                       ng-model-options="{allowInvalid: true, debounce: 250}"
+                       ng-change="$component.onChange()"
+
+                       ng-focus="$component.isDisabled || $component.setTouched()"
+                       ng-click="$component.isDisabled || $component.setTouched()">
+        </md-datepicker>
+
+        <div ng-messages="$component.errors" ng-show="$component.dirty || $component.touched" style="margin-left: -15px;">
+            <ng-transclude></ng-transclude>
+        </div>
+    </md-input-container>
+</ng-form>

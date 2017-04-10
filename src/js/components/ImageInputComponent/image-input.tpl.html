@@ -1,0 +1,55 @@
+<ng-form name="_form" flex ng-cloak>
+    
+    <div layout="column" flex md-whiteframe="1"  layout-align="center stretch" layout-margin>
+        <div flex layout-align="center center" layout-padding layout="row" >
+
+            <label  ng-class="{'lostFocus': $component.isDisabled}" for="{{ $component.name }}" ng-disabled="$component.isDisabled" ng-if="$component.preview  && !$component.isDisabled" layout="column" layout-align="center center" >
+                <img ng-class="$component.overrideClass" ng-src="{{$component.value || $component.fallbackImg}}" ng-click="$component.isDisabled || $component.setTouched()" />
+            </label>
+
+            <div ng-if="$component.preview && $component.isDisabled" layout="column" layout-align="center center" >
+                <img ng-class="[{'lostFocus': $component.isDisabled}, $component.overrideClass]" ng-src="{{$component.value || $component.fallbackImg}}" ng-click="$component.isDisabled || $component.setTouched()" />
+            </div>
+            <input
+                    flex
+                    name="{{ $component.name }}"
+                    id="{{ $component.name }}"
+                    type="file"
+                    accept="image/*"
+
+                    ng-model-options="{allowInvalid: true, debounce: 250}"
+                    ng-model="$component.value"
+
+                    class="hide"
+
+                    ng-disabled="$component.isDisabled"
+                    ng-required="$component.isRequired"
+                    ng-focus="$component.isDisabled || $component.setTouched()"
+                    ng-click="$component.isDisabled || $component.setTouched()"/>
+            <div layout="row"  layout-xs="column" layout-align="space-between center" ng-if="$component.showButtons">
+
+                <md-button ng-hide="!$component.allowWebcam" style="margin-top: 5px;" class="md-raised md-icon-button hide show-gt-sm" ng-disabled="$component.isDisabled" ng-click="$component.showCamera() && $component.setTouched()">
+                    <md-icon class="material-icons">add_a_photo</md-icon>
+                    <md-tooltip md-direction="right">Tirar uma foto</md-tooltip>
+                </md-button>
+
+                <label flex for="{{ $component.name }}" style="margin-top: 5px;" md-ink-ripple class="md-button md-icon-button md-raised " ng-disabled="$component.isDisabled" ng-click="$component.isDisabled || $component.setTouched()">
+                    <md-icon class="material-icons">folder_open</md-icon>
+                    <md-tooltip md-direction="right">Selecionar Imagem</md-tooltip>
+                </label>
+
+                <md-button class="md-raised md-icon-button " style="margin-top: 5px;" ng-disabled="$component.isDisabled" ng-click="$component.clean() && $component.setTouched()">
+                    <md-icon class="material-icons">delete</md-icon>
+                    <md-tooltip md-direction="right">Remover Imagem</md-tooltip>
+                </md-button>
+
+            </div>
+
+        </div>
+
+        <md-input-container flex  layout="column" >
+            <ng-transclude ng-messages="$component.errors" ng-show="$component.dirty || $component.touched"></ng-transclude>
+        </md-input-container>
+    </div>
+
+</ng-form>
