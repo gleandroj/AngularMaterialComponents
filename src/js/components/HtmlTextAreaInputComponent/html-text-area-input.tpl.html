@@ -47,7 +47,7 @@
 
             <md-card layout="row" class="action">
                 <div class="tgbtn" ng-if="!$component.isElementTag('A')"><md-button aria-label="action"  ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-click="$component.inserLink($event)"  class="md-icon-button action-button"><md-icon class="material-icons">insert_link</md-icon></md-button></div>
-                <div class="tgbtn" ng-if="$component.isElementTag('A')"><md-button aria-label="action"  ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-click="$component.exec($event, 'unlink')"  class="md-icon-button action-button"><md-icon md-svg-src="{{ $component.link_off_icon }}" aria-hidden="true"> </md-icon></md-button></div>
+                <div class="tgbtn" ng-if="$component.isElementTag('A')"><md-button aria-label="action"  ng-disabled="!$component.canDoAction || $component.isDisabled" unselectable="on" ng-click="$component.exec($event, 'unlink')"  class="md-icon-button action-button"><md-icon style="color: black; width: 24px;" md-svg-src="{{ $component.link_off }}" aria-hidden="true"> </md-icon></md-button></div>
             </md-card>
 
             <md-card layout="row" class="action">
@@ -64,7 +64,7 @@
             </md-card>
 
             <md-card layout="row" class="action">
-                <div class="tgbtn" ng-class="{'toggle': $component.showHtml}" ><md-button aria-label="action" ng-disabled="$component.isDisabled" unselectable="on" ng-mousedown="$component.toggleHtml()"  class="md-icon-button action-button"><md-icon md-svg-src="{{ $component.xml_icon }}" aria-hidden="true"> </md-icon></md-button></div>
+                <div class="tgbtn" ng-class="{'toggle': $component.showHtml}" ><md-button aria-label="action" ng-disabled="$component.isDisabled" unselectable="on" ng-mousedown="$component.toggleHtml()"  class="md-icon-button action-button"><md-icon md-svg-src="{{ $component.xml_icon }}" aria-hidden="true"></md-icon></md-button></div>
             </md-card>
 
             <md-card layout="row" class="action">

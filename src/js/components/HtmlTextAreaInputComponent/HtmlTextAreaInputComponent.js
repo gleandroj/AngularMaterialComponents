@@ -3,10 +3,10 @@
  */
 
 import { AbstractInputController, AbstractInputComponent } from './../AbstractInputComponent/AbstractInputComponent';
-
 import HtmlTextAreaInputTemplate from './html-text-area-input.tpl.html';
-import link_off_icon from '../../../icons/link-off.svg';
-import xml_icon from '../../../icons/xml.svg';
+
+import xml_icon from './../../../icons/xml.svg';
+import link_off from './../../../icons/link_off.svg';
 
 class HtmlTextAreaInputController extends AbstractInputController {
 
@@ -14,8 +14,8 @@ class HtmlTextAreaInputController extends AbstractInputController {
         super($scope, AngularUtilService);
         this.dialogService = $mdDialog;
         this.preview = this.showHtml = false;
-        this.link_off_icon = link_off_icon;
         this.xml_icon = xml_icon;
+        this.link_off = link_off;
     }
 
     initialize(){
@@ -70,18 +70,20 @@ class HtmlTextAreaInputController extends AbstractInputController {
     insertImage($event){
         $event.preventDefault();
         let self = this;
-        this.dialogService.showInputDialog({
-            title:'Adicionar Imagem',
-            placeholder:'Url',
-            okBtn: 'Salvar',
-            cancelBtn:'Cancelar'
-        }).then((url)=>{
-            document.getElementById('inputElement').focus();
-            self.exec($event, 'insertImage', url);
-            self.onChange();
-        }, ()=>{
-            document.getElementById('inputElement').focus();
-        });
+        let dialogInput = this.dialogService.prompt()
+            .title('Adicionar Imagem')
+            .placeholder('Url')
+            .ok('Salvar')
+            .cancel('Cancelar');
+
+        this.dialogService.show(dialogInput)
+            .then((url)=>{
+                document.getElementById('inputElement').focus();
+                self.exec($event, 'insertImage', url);
+                self.onChange();
+            }, ()=>{
+                document.getElementById('inputElement').focus();
+            });
     }
 
     clean($event){

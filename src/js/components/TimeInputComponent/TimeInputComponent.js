@@ -5,11 +5,14 @@
 import moment from 'moment';
 import { AbstractInputController, AbstractInputComponent } from './../AbstractInputComponent/AbstractInputComponent';
 import TimeInputTemplate from './time-input.tpl.html';
+import access_time from './../../../icons/access_time.svg';
+
 
 class TimeInputController extends AbstractInputController {
 
     constructor($scope, AngularUtilService) {
         super($scope, AngularUtilService);
+        this.fallbackIcon = access_time;
     }
 
     $onInit(){
@@ -25,9 +28,6 @@ class TimeInputController extends AbstractInputController {
 
     initialize(){
         super.initialize();
-
-        if(this.util.isUndefined(this.icon)) this.icon = 'access_time';
-
         /*Fix problem when model does not have date (initialize it with today date)*/
         this.util.timeout(()=> { this.onChange(); }, 0);
     }

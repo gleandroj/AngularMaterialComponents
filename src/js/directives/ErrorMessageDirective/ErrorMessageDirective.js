@@ -5,13 +5,12 @@ export let ErrorMessageDirective = {
         return {
             scope:{
                 name: '@',
+                error: '@',
                 message: '@',
                 animation:'@'
             },
-            template: '<div ng-message="{{ name }}" class="md-input-message-animation" style="opacity:1; margin-top: 0px;">{{ message }}</div>',
-            link:(scope, element, attrs)=>{
-                
-            }
+            transclude: true,
+            template: '<div ng-message="{{ name || error }}" class="md-input-message-animation" style="opacity:1; margin-top: 0px;" ng-transclude>{{ message }}</div>'
         }
     }
 };

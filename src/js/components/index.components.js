@@ -12,13 +12,16 @@ import { PaginationComponent } from './PaginationComponent/PaginationComponent';
 import { DateInputComponent } from './DateInputComponent/DateInputComponent';
 import { TimeInputComponent } from './TimeInputComponent/TimeInputComponent';
 
-export default angular.module('angular-material-components.components')
-    .component(TextInputComponent.selector, TextInputComponent)
-    .component(TextAreaInputComponent.selector, TextAreaInputComponent)
-    .component(HtmlTextAreaInputComponent.selector, HtmlTextAreaInputComponent)
-    .component(NumberInputComponent.selector, NumberInputComponent)
-    .component(ImageInputComponent.selector, ImageInputComponent)
-    .component(SearchInputComponent.selector, SearchInputComponent)
-    .component(PaginationComponent.selector, PaginationComponent)
-    .component(DateInputComponent.selector, DateInputComponent)
-    .component(TimeInputComponent.selector, TimeInputComponent);
+let components = angular.module('angular-material-components.components', ['ngMaterial', 'ngMessages']);
+
+components.component(TextInputComponent.selector, TextInputComponent);
+components.component(TextAreaInputComponent.selector, TextAreaInputComponent);
+components.component(HtmlTextAreaInputComponent.selector, HtmlTextAreaInputComponent);
+components.component(NumberInputComponent.selector, NumberInputComponent);
+components.component(ImageInputComponent.selector, ImageInputComponent);
+components.component(SearchInputComponent.selector, SearchInputComponent);
+components.component(PaginationComponent.selector, PaginationComponent);
+components.component(DateInputComponent.selector, DateInputComponent);
+components.component(TimeInputComponent.selector, TimeInputComponent);
+
+export default components;

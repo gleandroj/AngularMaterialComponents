@@ -1,6 +1,8 @@
 <ng-form name="_form">
-    <md-input-container flex-gt-lg class="md-block" md-is-error="$component.invalid && $component.touched" md-no-float="$component.noFloat">
+    <md-input-container flex-gt-lg class="md-block" md-is-error="$component.invalid && ($component.touched || $component.dirty)" md-no-float="$component.noFloat">
         <md-icon class="material-icons" ng-if="$component.icon">{{ $component.icon }}</md-icon>
+        <md-icon class="material-icons" ng-if="!$component.icon" md-svg-src="{{ $component.fallbackIcon }}"></md-icon>
+
         <input
                 type="time"
                 placeholder="{{$component.label}}"

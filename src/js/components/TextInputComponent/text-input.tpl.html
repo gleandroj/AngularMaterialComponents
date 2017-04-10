@@ -1,6 +1,6 @@
 <ng-form name="_form" ng-cloak>
-    <md-input-container flex class="md-block" md-is-error="$component.invalid && $component.touched" md-no-float="$component.noFloat">
-        <md-icon class="material-icons" ng-if="$component.icon">{{ $component.icon }}</md-icon>
+    <md-input-container flex class="md-block" md-is-error="$component.invalid && ($component.touched || $component.dirty)" md-no-float="$component.noFloat">
+        <md-icon class="material-icons" >{{ $component.icon }}</md-icon>
         <input
                 type="{{$component.type}}"
                 placeholder="{{$component.label}}"

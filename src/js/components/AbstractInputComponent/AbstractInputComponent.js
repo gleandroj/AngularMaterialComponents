@@ -40,7 +40,7 @@ export class AbstractInputController {
         /*Get all validators from input*/
         this.model.$validators = this.form[this.name].$validators;
         /*Override required validator*/
-        this.model.$validators.required = (modelValue, viewValue) => !this.isRequired || !this.model.$isEmpty(viewValue);
+        this.addValidator('required', (modelValue, viewValue) => !this.isRequired || !this.model.$isEmpty(viewValue));
         /*Validate*/
         this.validate();
     }
@@ -63,6 +63,7 @@ export class AbstractInputController {
     }
 
     set value(value){
+        if(!this.dirty && this.util.isDefined(value) && this.initialized) this.setDirty();
         this._value = value;
     }
 
@@ -89,24 +90,31 @@ export class AbstractInputController {
         }
     }
 
+    setDirty(){
+        if(!this.model.$touched) {
+            this.model.$setDirty();
+            this.validate();
+        }
+    }
+
     get errors(){
         return this.model.$error;
     }
 
     get valid(){
-        return this.model.$valid;
+        return this.model && this.model.$valid;
     }
 
     get invalid(){
-        return this.model.$invalid;
+        return this.model && this.model.$invalid;
     }
 
     get touched(){
-        return this.model.$touched;
+        return this.model && this.model.$touched;
     }
 
     get dirty(){
-        return this.model.$dirty;
+        return this.model && this.model.$dirty;
     }
 }
 

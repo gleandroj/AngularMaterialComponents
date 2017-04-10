@@ -6,7 +6,10 @@ import AngularUtilService from './AngularUtilService';
 import ImageHelperService from './ImageHelperService';
 import CameraService from './CameraService';
 
-export default angular.module('angular-material-components.services')
-                        .service('AngularUtilService', AngularUtilService)
-                        .service('ImageHelperService', ImageHelperService)
-                        .service('CameraService', CameraService);
+let services = angular.module('angular-material-components.services', ['ngMaterial']);
+
+services.service('AngularUtilService', AngularUtilService);
+services.service('ImageHelperService', ImageHelperService);
+services.service('CameraService', CameraService);
+
+export default services;

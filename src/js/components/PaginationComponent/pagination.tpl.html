@@ -20,20 +20,19 @@
         </div>
 
         <md-button class="md-icon-button" style="margin: 0px;"  aria-label="first" aria-disabled="false" ng-disabled="$pagination.page == 1 || $pagination.isDisabled" ng-click="$pagination.page = 1">
-            <md-icon md-svg-src="{{ $pagination.arrow_first }}" aria-hidden="true"> </md-icon>
+            <md-icon md-svg-src="{{ $pagination.first }}" aria-hidden="true"> </md-icon>
         </md-button>
 
         <md-button class="md-icon-button" style="margin: 0px;" aria-label="preview" aria-disabled="false" ng-disabled="$pagination.page == 1 || $pagination.isDisabled" ng-click="$pagination.page = $pagination.page-1">
-            <md-icon md-svg-src="{{ $pagination.arrow_before }}" aria-hidden="true"> </md-icon>
+            <md-icon md-svg-src="{{ $pagination.previous }}" aria-hidden="true"> </md-icon>
         </md-button>
 
         <md-button class="md-icon-button" style="margin: 0px;" aria-label="next" aria-disabled="false" ng-disabled="$pagination.page == $pagination.numberOfPages || $pagination.isDisabled" ng-click="$pagination.page = $pagination.page+1">
-            <md-icon md-svg-src="{{ $pagination.arrow_next }}" aria-hidden="true"> </md-icon>
-
+            <md-icon md-svg-src="{{ $pagination.next }}" aria-hidden="true"> </md-icon>
         </md-button>
 
         <md-button class="md-icon-button" style="margin: 0px;" aria-label="last" aria-disabled="false" ng-disabled="$pagination.page == $pagination.numberOfPages || $pagination.isDisabled" ng-click="$pagination.page = $pagination.numberOfPages">
-            <md-icon md-svg-src="{{ $pagination.arrow_last }}" aria-hidden="true"> </md-icon>
+            <md-icon md-svg-src="{{ $pagination.last }}" aria-hidden="true"> </md-icon>
         </md-button>
     </div>
 </div>

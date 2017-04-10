@@ -1,9 +1,10 @@
-<form name="_form">
-    <md-input-container flex-gt-lg class="md-block" md-is-error="$component.invalid && $component.touched" md-no-float="$component.noFloat">
+<ng-form name="_form" ng-cloak>
+
+    <md-input-container flex class="md-block" ng-class="{'md-icon-left': $component.icon}" md-is-error="$component.invalid && ($component.touched || $component.dirty)" md-no-float="$component.noFloat">
         <md-icon class="material-icons" ng-if="$component.icon">{{ $component.icon }}</md-icon>
         <input
                 type="number"
-                placeholder="{{$component.label}}"
+                placeholder="{{ $component.label }}"
 
                 name="{{ $component.name }}"
                 id="{{ $component.name }}"
@@ -15,9 +16,10 @@
                 ng-required="$component.isRequired"
                 ng-disabled="$component.isDisabled"
 
-                max="{{$component.max }}"
-                min="{{$component.min }}"
+                max="{{ $component.max }}"
+                min="{{ $component.min }}"
 
+                step="{{ $component.step || 1 }}"
 
                 ng-focus="$component.isDisabled || $component.setTouched()"
                 ng-click="$component.isDisabled || $component.setTouched()" >
@@ -25,5 +27,7 @@
         <div ng-messages="$component.errors" ng-show="$component.dirty || $component.touched" >
             <ng-transclude></ng-transclude>
         </div>
+
     </md-input-container>
-</form>
+
+</ng-form>

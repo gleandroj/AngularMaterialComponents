@@ -29,7 +29,8 @@ export let NumberInputComponent = {
     },
     bindings: Object.assign({
         max: '<',
-        min: '<'
+        min: '<',
+        step: '<'
     }, AbstractInputComponent.bindings),
     controller: NumberInputController,
     controllerAs: '$component',

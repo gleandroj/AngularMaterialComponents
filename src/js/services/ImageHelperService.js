@@ -7,7 +7,7 @@ export const DefaultVars = {
     width: 300
 };
 
-export class ImageHelperService{
+export default class ImageHelperService{
 
     constructor(AngularUtilService){
         this.util = AngularUtilService;

@@ -1,22 +1,21 @@
 /**
  * Created by FG0003 on 09/02/2017.
  */
-import arrow_before from '../../../img/icons/arrow-before.svg';
-import arrow_first from '../../../img/icons/navigate-first.svg';
-import arrow_next from '../../../img/icons/navigate-next.svg';
-import arrow_last from '../../../img/icons/navigate-last.svg';
-
 import Template from './pagination.tpl.html';
+
+import previous from './../../../icons/previous.svg';
+import next from './../../../icons/next.svg';
+import first from './../../../icons/first.svg';
+import last from './../../../icons/last.svg';
 
 class PaginationController{
 
     constructor(AngularUtilService){
-
         this.util = AngularUtilService;
-        this.arrow_before = arrow_before;
-        this.arrow_first = arrow_first;
-        this.arrow_next = arrow_next;
-        this.arrow_last = arrow_last;
+        this.previous = previous;
+        this.next = next;
+        this.first = first;
+        this.last = last;
     }
 
     get page(){

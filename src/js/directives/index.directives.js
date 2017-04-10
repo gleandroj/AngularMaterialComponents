@@ -5,6 +5,9 @@
 import { ErrorMessageDirective } from './ErrorMessageDirective/ErrorMessageDirective';
 import { ContentEditableDirective } from './ContentEditableDirective/ContentEditableDirective';
 
-export default angular.module('runners.directives')
-    .directive(ErrorMessageDirective.selector, ErrorMessageDirective.fn)
-    .directive(ContentEditableDirective.selector, ContentEditableDirective.fn);
+let directives = angular.module('angular-material-components.directives', ['ngMaterial', 'ngMessages']);
+
+directives.directive(ErrorMessageDirective.selector, ErrorMessageDirective.fn);
+directives.directive(ContentEditableDirective.selector, ContentEditableDirective.fn);
+
+export default directives;

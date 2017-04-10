@@ -1,0 +1,158 @@
+/*Search Card css*/
+.search-card-container .md-input-message-animation{
+    margin-top: 0 !important;
+    padding-top: 0px !important;
+}
+.search-card-container .md-char-counter{
+    margin: -10px !important;
+    padding: 0px !important;
+}
+
+.search-card-container{
+    margin: 0;
+}
+/*.search-card-container > div.md-errors-spacer{
+    display: none;
+}*/
+
+/*Pagination Css*/
+.md-page-select{
+    margin: 0 !important;
+    -webkit-justify-content: flex-end !important;
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+    min-width: 64px !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    font-size: 12px !important;
+    color: rgba(0, 0, 0, 0.54) !important;
+}
+md-select.md-page-select > .md-select-value {
+    padding: 0 !important;
+    min-width: 0 !important;
+    min-height: 24px !important;
+    border-bottom: 0 !important;
+    -webkit-flex: 0 0 auto !important;
+    -ms-flex: 0 0 auto !important;
+    flex: 0 0 auto !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    border-bottom-style: solid !important;
+    background-color: transparent !important;
+    position: relative !important;
+    box-sizing: content-box !important;
+    -webkit-flex-grow: 1 !important;
+    flex-grow: 1 !important;
+}
+.input-view {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.010em !important;
+    margin: 0 0 0 0 !important;
+    line-height: 1.6em !important;
+    border: none 0px !important;
+    background-color: transparent !important;
+    color: rgba(0,0,0,0.54) !important;
+}
+
+/*Date Input Css*/
+.md-datepicker-button:not(disabled){
+    color: rgba(0,0,0,0.87);
+}
+.date-picker-row {
+    margin-left: -15px;
+    position: relative;
+    min-height: 60px;
+}
+.date-picker-row label {
+    right: auto !important;
+    left: auto !important;
+    margin-left: 0px !important;;
+    width: calc(100% - 84px) !important;
+}
+.date-picker-row .md-datepicker-input-container {
+    margin-left: 0;
+    width: 150px !important;
+}
+.md-icon-button + .md-datepicker-input-container {
+    margin-left: 0 !important;
+}
+/*
+.md-datepicker-calendar-pane{
+    !*background-color: white !important;
+}
+*/
+
+/*Html Text Area Css*/
+.htmlTextArea{
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    order: 2;
+    display: block;
+    background: none;
+    padding-bottom: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-width: 1px 1px 1px 1px;
+    line-height: 26px;
+    -ms-flex-preferred-size: 26px;
+    border-radius: 0;
+    border-style: solid;
+    width: 100%;
+    box-sizing: border-box;
+    float: left;
+    color: rgba(0,0,0,0.87);
+    border-color: rgba(0,0,0,0.12);
+    overflow-y: auto; min-height: 100px; max-height: 150px;
+}
+.tgbtn{
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: rgba(0,0,0,0.12);
+}
+.toggle{
+    background-color: rgba(0,0,0, .3) !important;
+}
+.lostFocus{
+    outline: none;
+}
+.action-button:not([disabled]){
+    color: rgba(0, 0, 0, 0.54) !important;;
+}
+label.action-button:not([disabled]){
+    color: rgba(0, 0, 0, 0.54) !important;;
+}
+label.action-button:not([disabled]) > md-icon{
+    color: rgba(0, 0, 0, 0.54) !important;
+}
+label.action-button[disabled]{
+    color: rgba(0, 0, 0, 0.38) !important;;
+}
+label.action-button[disabled] > md-icon{
+    color: rgba(0, 0, 0, 0.38) !important;
+}
+.header > md-icon{
+    top: 8px;
+    left: 2px;
+    right: auto;
+    color: rgba(0,0,0,0.87);
+}
+.header > label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    order: 1;
+    -webkit-font-smoothing: antialiased;
+    padding-left: 3px;
+    padding-right: 0;
+    z-index: 1;
+    color: rgba(0,0,0,0.38);
+}
+.is-error{
+    color: rgb(162,34,34) !important;
+}

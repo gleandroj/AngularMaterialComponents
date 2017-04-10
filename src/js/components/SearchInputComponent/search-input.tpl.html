@@ -1,37 +1,38 @@
 <ng-form name="_form" ng-cloak>
-    <md-card class="search-card" layout="row">
-        <md-input-container md-no-float style="margin: 0;" md-is-error="$component.invalid && $component.touched" layout-margin flex md-no-float="$component.noFloat">
-            <input type="{{ $component.type }}"
-                   placeholder="{{$component.label}}"
+        <div class="search-card" layout-padding layout-margin layout="row" md-whiteframe="2" layout-align=" center">
+            <md-input-container md-no-float class="" md-is-error="$component.invalid && ($component.touched || $component.dirty)" flex="95">
+                <input type="{{ $component.type }}"
+                       placeholder="{{$component.label}}"
 
-                   name="{{ $component.name }}"
-                   id="{{ $component.name }}"
+                       name="{{ $component.name }}"
+                       id="{{ $component.name }}"
 
-                   ng-model="$component.value"
-                   ng-change="$component.onChange()"
-                   ng-model-options="{allowInvalid: true, debounce: 250}"
+                       ng-model="$component.value"
+                       ng-change="$component.onChange()"
+                       ng-model-options="{allowInvalid: true, debounce: 250}"
 
-                   ng-required="$component.isRequired"
-                   ng-disabled="$component.isDisabled"
+                       ng-required="$component.isRequired"
+                       ng-disabled="$component.isDisabled"
 
-                   ng-minlength="$component.minLength"
-                   ng-maxlength="$component.maxLength"
+                       ng-minlength="$component.minLength"
+                       ng-maxlength="$component.maxLength"
 
-                   md-maxlength="$component.maxLength"
+                       md-maxlength="$component.maxLength"
 
-                   maxlength="{{$component.maxLength }}"
-                   ng-focus="$component.isDisabled || $component.setTouched()"
-                   ng-click="$component.isDisabled || $component.setTouched()">
+                       maxlength="{{$component.maxLength }}"
+                       ng-focus="$component.isDisabled || $component.setTouched()"
+                       ng-click="$component.isDisabled || $component.setTouched()">
 
-            <div ng-messages="$component.errors" ng-show="$component.dirty || $component.touched" >
-                <ng-transclude></ng-transclude>
-            </div>
-        </md-input-container>
-        <md-button ng-if="($component.value == '' || $component.value == null)" ng-click="$component.focus($component.name);" class="md-icon-button" aria-label="search" ng-disabled="$component.isDisabled">
-            <md-icon  class="material-icons" >search</md-icon>
-        </md-button>
-        <md-button  ng-if="!($component.value == '' || $component.value == null)" ng-click="$component.clean()" class="md-icon-button" aria-label="close" ng-disabled="$component.isDisabled">
-            <md-icon  class="material-icons" >close</md-icon>
-        </md-button>
-    </md-card>
+                <div ng-messages="$component.errors" ng-show="$component.dirty || $component.touched" >
+                    <ng-transclude></ng-transclude>
+                </div>
+            </md-input-container>
+
+                <md-button style="align-self: center;" ng-if="($component.value == '' || $component.value == null)" ng-click="$component.focus($component.name);" class="md-icon-button" aria-label="search" ng-disabled="$component.isDisabled">
+                    <md-icon  class="material-icons" >search</md-icon>
+                </md-button>
+                <md-button style="align-self: center;" ng-if="!($component.value == '' || $component.value == null)" ng-click="$component.clean()" class="md-icon-button" aria-label="close" ng-disabled="$component.isDisabled">
+                    <md-icon  class="material-icons" >close</md-icon>
+                </md-button>
+        </div>
 </ng-form>

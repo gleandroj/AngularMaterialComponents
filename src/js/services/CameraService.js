@@ -6,10 +6,10 @@ import { DefaultVars } from './ImageHelperService';
 
 class CameraController {
 
-    constructor($mdDialog , AngularUtilService, $log, $window, locals) {
+    constructor($mdDialog, AngularUtilService, $log, $window, locals) {
 
         this.window = $window;
-        this.dialogService = $mdDialog ;
+        this.dialogService = $mdDialog;
         this.util = AngularUtilService;
         this.log = $log;
         this.title = locals.title || 'Camera';
@@ -128,14 +128,14 @@ class CameraController {
     }
 }
 
-CameraController.$inject = ['$mdDialog ', 'AngularUtilService', '$log', '$window', 'locals'];
+CameraController.$inject = ['$mdDialog', 'AngularUtilService', '$log', '$window', 'locals'];
 
-export class CameraService {
+export default class CameraService {
     
-    constructor($mdDialog , AngularUtilService, $log){
+    constructor($mdDialog, AngularUtilService, $log){
         this.log = $log;
         this.util = AngularUtilService;
-        this.dialogServiceService = $mdDialog ;
+        this.dialogServiceService = $mdDialog;
     }
 
     showCamera(options) {
@@ -167,4 +167,4 @@ export class CameraService {
 
 }
 
-CameraService.$inject = ['$mdDialog ', 'AngularUtilService', '$log'];
+CameraService.$inject = ['$mdDialog', 'AngularUtilService', '$log'];

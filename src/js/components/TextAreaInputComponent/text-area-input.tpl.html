@@ -1,5 +1,5 @@
-<ng-form name="_form">
-    <md-input-container flex-gt-lg class="md-block" md-is-error="$component.invalid && $component.touched" md-no-float="$component.noFloat">
+<ng-form name="_form" ng-cloak>
+    <md-input-container flex class="md-block" ng-class="{'md-icon-left': $component.icon}" md-is-error="$component.invalid && ($component.touched || $component.dirty)" md-no-float="$component.noFloat">
         <md-icon class="material-icons" ng-if="$component.icon">{{ $component.icon }}</md-icon>
         <textarea
                 placeholder="{{$component.label}}"
