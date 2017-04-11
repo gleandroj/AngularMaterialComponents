@@ -8,7 +8,7 @@ import AngularMaterialServices from './services/index.services';
 import AngularMaterialComponents from './components/index.components';
 import AngularMaterialDirectives from './directives/index.directives';
 
-export default angular.module('angular-material-components', [
+export default angular.module('angular-material-simple-components', [
 
     AngularMaterialConfigs.name,
     AngularMaterialServices.name,

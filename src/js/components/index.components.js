@@ -12,7 +12,7 @@ import { PaginationComponent } from './PaginationComponent/PaginationComponent';
 import { DateInputComponent } from './DateInputComponent/DateInputComponent';
 import { TimeInputComponent } from './TimeInputComponent/TimeInputComponent';
 
-let components = angular.module('angular-material-components.components', ['ngMaterial', 'ngMessages']);
+let components = angular.module('angular-material-simple-components.components', ['ngMaterial', 'ngMessages']);
 
 components.component(TextInputComponent.selector, TextInputComponent);
 components.component(TextAreaInputComponent.selector, TextAreaInputComponent);
