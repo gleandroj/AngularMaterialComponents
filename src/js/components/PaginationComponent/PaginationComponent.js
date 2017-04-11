@@ -35,11 +35,11 @@ class PaginationController{
     }
 
     $onInit(){
-
+        if(this.util.isUndefined(this.currentPage)) this.currentPage = 1;
     }
 
     get numberOfPages(){
-        if(this.nItems == 0)
+        if(this.nItems == 0 || this.nItems == null)
             return 1;
         return Math.ceil(this.nItems/this.itemsPerPage);
     }
