@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Angular Material Components</title>
@@ -7,72 +8,81 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 </head>
-<body ng-app="amc-test" ng-cloak >
 
-    <md-content flex layout="column" style="overflow-x: hidden;" layout-margin>
-        <form name="myForm">
+<body ng-app="amc-test" ng-cloak>
 
-            <text-input icon="text_fields" label="Text Input Sample" ng-model="input" is-required="true" max-length="50">
-                <error-message error="required">This field is required.</error-message>
-            </text-input>
+    <div layout="column" layout-align="center center" flex>
+        <h1 >Demo</h1>
+        <md-content flex flex-gt-sm="70" layout="column" style="overflow-x: hidden;" layout-margin>
+            <form name="myForm">
 
-            <text-input icon="email" type="email" label="Email Input Sample" ng-model="email" is-required="true" max-length="50">
-                <error-message error="required">This field is required.</error-message>
-                <error-message error="email">This field must be a valid email address.</error-message>
-            </text-input>
+                <text-input icon="text_fields" label="Text Input Sample" ng-model="input" is-required="true" max-length="50">
+                    <error-message error="required">This field is required.</error-message>
+                </text-input>
 
-            <text-input icon="security" type="password"  label="Password Input Sample" ng-model="password" is-required="true" max-length="50">
-                <error-message error="required">This field is required.</error-message>
-            </text-input>
+                <text-input icon="email" type="email" label="Email Input Sample" ng-model="email" is-required="true" max-length="50">
+                    <error-message error="required">This field is required.</error-message>
+                    <error-message error="email">This field must be a valid email address.</error-message>
+                </text-input>
 
-            <text-input icon="security" type="password"  label="Password Match Input Sample" ng-model="password2" is-required="true" max-length="50" match="password" check-match="true">
-                <error-message error="required">This field is required.</error-message>
-                <error-message error="match">The fields not match.</error-message>
-            </text-input>
+                <text-input icon="security" type="password" label="Password Input Sample" ng-model="password" is-required="true" max-length="50">
+                    <error-message error="required">This field is required.</error-message>
+                </text-input>
 
-            <number-input icon="attach_money" label="Number Input Sample" ng-model="number" is-required="true" max-length="50">
-                <error-message error="required">This field is required.</error-message>
-            </number-input>
+                <text-input icon="security" type="password" label="Password Match Input Sample" ng-model="password2" is-required="true" max-length="50"
+                    match="password" check-match="true">
+                    <error-message error="required">This field is required.</error-message>
+                    <error-message error="match">The fields not match.</error-message>
+                    </text-input>
 
-            <text-area-input name="textArea" icon="text_fields" label="Text Area Input Sample" ng-model="textArea" is-required="true" max-length="50">
-                <error-message error="required">This field is required.</error-message>
-            </text-area-input>
+                    <number-input icon="attach_money" label="Number Input Sample" ng-model="number" is-required="true" max-length="50">
+                        <error-message error="required">This field is required.</error-message>
+                    </number-input>
 
-            <span class="md-title">Image Input Card</span><br/>
+                    <text-area-input name="textArea" icon="text_fields" label="Text Area Input Sample" ng-model="textArea" is-required="true"
+                        max-length="50">
+                        <error-message error="required">This field is required.</error-message>
+                        </text-area-input>
 
-            <image-input name="image" ng-model="image" is-required="true">
-                <error-message error="required">This field is required.</error-message>
-                <error-message error="image">This field must be a valid image.</error-message>
-            </image-input>
+                        <span class="md-title">Image Input Card</span><br/>
 
-            <span class="md-title">Search Input Card</span><br/>
+                        <image-input name="image" ng-model="image" is-required="true">
+                            <error-message error="required">This field is required.</error-message>
+                            <error-message error="image">This field must be a valid image.</error-message>
+                        </image-input>
 
-            <search-input label="Search Input Sample" name="search" ng-model="search" ></search-input>
-            <span class="md-title">Html Input Card</span><br/><br/>
+                        <span class="md-title">Search Input Card</span><br/>
 
-            <html-text-area-input name="htmlTextArea" icon="text_fields" label="Html Input Sample" ng-model="htmlTextArea" is-required="true" max-length="50">
-                <error-message error="required">This field is required.</error-message>
-            </html-text-area-input>
+                        <search-input label="Search Input Sample" name="search" ng-model="search"></search-input>
+                        <span class="md-title">Html Input Card</span><br/><br/>
 
-        </form>
+                        <html-text-area-input name="htmlTextArea" icon="text_fields" label="Html Input Sample" ng-model="htmlTextArea" is-required="true"
+                            max-length="50">
+                            <error-message error="required">This field is required.</error-message>
+                            </html-text-area-input>
 
-        <pre><b>Form Valid:</b> {{ myForm.$valid }}</pre>
-    </md-content>
+            </form>
+
+            <pre><b>Form Valid:</b> {{ myForm.$valid }}</pre>
+        </md-content>
+    </div>
 
 
-<!-- Angular Material requires Angular.js Libraries -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
-<!-- Angular Material Library -->
-<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.js"></script>
-<script src="./../dist/angular-material-components.js"></script>
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.js"></script>
+    <script src="./../dist/angular-material-components.js"></script>
 
-<!-- Your application bootstrap  -->
-<script type="text/javascript">
-    angular.module('amc-test', ['angular-material-components']);
-</script>
+    <!-- Your application bootstrap  -->
+    <script type="text/javascript">
+        angular.module('amc-test', ['angular-material-components']);
+
+    </script>
 </body>
+
 </html>
