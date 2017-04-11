@@ -1,8 +1,9 @@
 <ng-form name="_form">
 
     <div class="header">
-        <md-icon class="material-icons" ng-if="$component.icon">{{ $component.icon }}</md-icon>
-        <label ng-class="{'is-error': $component.invalid && $component.touched}" for="{{ $component.name }}">{{ $component.label }} <span ng-if="$component.isRequired" style="font-size: 13px; vertical-align: top;">*</span></label>
+        <md-icon md-colors="haveFocus && !($component.invalid && $component.touched) ? {color: 'primary'} : {}" class="material-icons" ng-if="$component.icon">{{ $component.icon }}</md-icon>
+        <label ng-class="{'is-error': $component.invalid && $component.touched}" md-colors="haveFocus && !($component.invalid && $component.touched) ? {color: 'primary'} : {}" for="{{ $component.name }}">
+            {{ $component.label }} <span ng-if="$component.isRequired" style="font-size: 13px; vertical-align: top;">*</span></label>
     </div>
 
     <md-card >
@@ -80,11 +81,14 @@
 
                     id="inputElement"
 
-                    ng-class="{'lostFocus': $component.preview || $component.isDisabled}"
+                    md-colors="haveFocus && !($component.invalid && $component.touched) ? {'outline-color': 'primary'} : {}"
+                    ng-class="{'lostFocus': $component.preview || $component.isDisabled, 'is-error': $component.invalid && $component.touched}"
+
                     contenteditable="{{ !$component.isDisabled && !$component.preview }}"
                     ng-disabled="$component.isDisabled"
 
-                    ng-focus="$component.isDisabled || $component.setTouched()"
+                    ng-focus="(haveFocus = true) && ($component.isDisabled || $component.setTouched())"
+                    ng-blur="haveFocus = false"
                     ng-click="$component.isDisabled || $component.setTouched()"
 
                     ng-model="$component.value"
@@ -99,7 +103,8 @@
 
                     ng-show="$component.showHtml"
 
-                    ng-class="{'lostFocus': $component.preview}"
+                    md-colors="haveFocus && !($component.invalid && $component.touched) ? {'outline-color': 'primary'} : {}"
+                    ng-class="{'lostFocus': $component.preview || $component.isDisabled, 'is-error': $component.invalid && $component.touched}"
                     class="htmlTextArea"
 
                     ng-model="$component.value"
@@ -109,7 +114,8 @@
                     ng-required="$component.isRequired"
                     ng-disabled="$component.isDisabled"
 
-                    ng-focus="$component.isDisabled || $component.setTouched()"
+                    ng-focus="(haveFocus = true) && ($component.isDisabled || $component.setTouched())"
+                    ng-blur="haveFocus = false"
                     ng-click="$component.isDisabled || $component.setTouched()"
 
                     ng-minlength="{{ $component.minLength }}"
