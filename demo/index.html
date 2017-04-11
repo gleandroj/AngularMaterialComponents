@@ -6,67 +6,107 @@
     <title>Angular Material Components</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css">
+    
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body ng-app="amc-test" ng-cloak>
 
-    <div layout="column" layout-align="center center" flex>
-        <h1 >Demo</h1>
-        <md-content flex flex-gt-sm="70" layout="column" style="overflow-x: hidden;" layout-margin>
-            <form name="myForm">
+    <form name="myForm" layout="row" layout-align="space-around center">
 
-                <text-input icon="text_fields" label="Text Input Sample" ng-model="input" is-required="true" max-length="50">
-                    <error-message error="required">This field is required.</error-message>
-                </text-input>
+        <md-content flex-gt-md="90" flex-gt-lg="80" layout="column" flex style="overflow-y: auto;"  md-whiteframe="4" layout-padding  layout-margin>
+            <h1  style="align-self: center;">Demo</h1>
 
-                <text-input icon="email" type="email" label="Email Input Sample" ng-model="email" is-required="true" max-length="50">
-                    <error-message error="required">This field is required.</error-message>
-                    <error-message error="email">This field must be a valid email address.</error-message>
-                </text-input>
+            <md-content flex flex-gt-sm="70" layout="row" layout-align="space-around center" layout-wrap layout-margin>
 
-                <text-input icon="security" type="password" label="Password Input Sample" ng-model="password" is-required="true" max-length="50">
-                    <error-message error="required">This field is required.</error-message>
-                </text-input>
+                <div layout="column" flex-xs="100" flex-sm="100" flex-gt-md="40">
+                    <span class="md-title">Text And Number Inputs</span><br/>
 
-                <text-input icon="security" type="password" label="Password Match Input Sample" ng-model="password2" is-required="true" max-length="50"
-                    match="password" check-match="true">
-                    <error-message error="required">This field is required.</error-message>
-                    <error-message error="match">The fields not match.</error-message>
+                    <text-input icon="text_fields" label="Text Input Sample" ng-model="input" is-required="true" max-length="50">
+                        <error-message error="required">This field is required.</error-message>
+                    </text-input>
+
+                    <text-input icon="email" type="email" label="Email Input Sample" ng-model="email" is-required="true" max-length="50">
+                        <error-message error="required">This field is required.</error-message>
+                        <error-message error="email">This field must be a valid email address.</error-message>
+                    </text-input>
+
+                    <text-input icon="security" type="password" label="Password Input Sample" ng-model="password" is-required="true" max-length="50">
+                        <error-message error="required">This field is required.</error-message>
+                    </text-input>
+
+                    <text-input icon="security" type="password" label="Password Match Input Sample" ng-model="password2" is-required="true" max-length="50"
+                        match="password" check-match="true">
+                        <error-message error="required">This field is required.</error-message>
+                        <error-message error="match">The fields not match.</error-message>
                     </text-input>
 
                     <number-input icon="attach_money" label="Number Input Sample" ng-model="number" is-required="true" max-length="50">
                         <error-message error="required">This field is required.</error-message>
                     </number-input>
 
-                    <text-area-input name="textArea" icon="text_fields" label="Text Area Input Sample" ng-model="textArea" is-required="true"
-                        max-length="50">
+                    <text-area-input name="textArea" icon="text_fields" label="Text Area Input Sample" ng-model="textArea" is-required="true" max-length="50">
                         <error-message error="required">This field is required.</error-message>
-                        </text-area-input>
+                    </text-area-input>                
+                </div>
 
-                        <span class="md-title">Image Input Card</span><br/>
+                <span flex="10"></span>
 
-                        <image-input name="image" ng-model="image" is-required="true">
-                            <error-message error="required">This field is required.</error-message>
-                            <error-message error="image">This field must be a valid image.</error-message>
-                        </image-input>
+                <div layout="column" flex-xs="100" flex-sm="100" flex-gt-md="40">
+                    <span class="md-title">Date and time Input</span><br/><br/>
+                    <date-input ng-model="date" label="Date Input Sample" is-required="true">
+                        <error-message error="required">This field is required.</error-message>
+                    </date-input>
 
-                        <span class="md-title">Search Input Card</span><br/>
+                    <time-input ng-model="date" label="Time Input Sample" is-required="true">
+                        <error-message error="required">This field is required.</error-message>
+                    </time-input>
 
-                        <search-input label="Search Input Sample" name="search" ng-model="search"></search-input>
-                        <span class="md-title">Html Input Card</span><br/><br/>
+                    <span class="md-title">Image Input Card</span><br/>
 
-                        <html-text-area-input name="htmlTextArea" icon="text_fields" label="Html Input Sample" ng-model="htmlTextArea" is-required="true"
-                            max-length="50">
-                            <error-message error="required">This field is required.</error-message>
-                            </html-text-area-input>
+                    <image-input name="image" ng-model="image" is-required="true">
+                        <error-message error="required">This field is required.</error-message>
+                        <error-message error="image">This field must be a valid image.</error-message>
+                    </image-input>
 
-            </form>
+                    <span class="md-title">Search Input Card</span><br/>
+                    <search-input label="Search Input Sample" name="search" ng-model="search"></search-input>
+                </div>
 
-            <pre><b>Form Valid:</b> {{ myForm.$valid }}</pre>
+            </md-content>
+
+            <md-divider></md-divider>
+
+            <md-content flex flex-gt-sm="70" layout="column" layout-margin>
+                <span class="md-title">Html Input Card</span><br/>
+                <html-text-area-input name="htmlTextArea" icon="text_fields" label="Html Input Sample" ng-model="htmlTextArea" is-required="true" max-length="50">
+                    <error-message error="required">This field is required.</error-message>
+                </html-text-area-input>
+            </md-content>
+
+            <md-divider></md-divider>
+
+            <md-content flex flex-gt-sm="70" layout="column" layout-margin>
+                <span class="md-title">Pagination</span><br/>
+                <md-pagination items-per-page="5" current-page="currentPage" n-items="50"></md-pagination>
+
+                <pre><b>Current Page:</b> {{ currentPage }}</pre>
+            </md-content>
+
+            <md-divider></md-divider>
+
+            <md-content layout="column" layout-margin>
+                <pre><b>Form Valid:</b> {{ myForm.$valid }}</pre>
+            </md-content>
+            
         </md-content>
-    </div>
 
+    </form>
 
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -75,12 +115,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
     <!-- Angular Material Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.js"></script>
     <script src="./../dist/angular-material-components.js"></script>
 
     <!-- Your application bootstrap  -->
     <script type="text/javascript">
-        angular.module('amc-test', ['angular-material-components']);
+        angular.module('amc-test', ['angular-material-simple-components']);
 
     </script>
 </body>
