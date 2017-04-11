@@ -2,7 +2,7 @@
 
 ## Demo
 Demo Hosted on github.io
-[Click Here](https://gleandroj.github.io/angular-material-simple-components/demo/)
+[Click Here](https://gleandroj.github.io/angular-material-simple-components/demo/){:target="_blank"}
 
 Quick Links:
 * [Installation](#installaton)
