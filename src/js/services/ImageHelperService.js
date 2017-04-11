@@ -22,6 +22,7 @@ export default class ImageHelperService{
             resizeArea = document.createElement('canvas');
             resizeArea.id = resizeAreaId;
             resizeArea.style.visibility = 'hidden';
+            resizeArea.style.display = 'none';
         }
 
         document.body.appendChild(resizeArea);
