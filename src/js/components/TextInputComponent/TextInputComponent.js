@@ -17,8 +17,8 @@ class TextInputController extends AbstractInputController {
     initialize(){
         super.initialize();
 
-        if(this.type != 'text' && this.type != 'email' && this.type != 'password')
-            throw 'O tipo deve ser "text" ou "email" ou "password"';
+        if(this.type != 'text' && this.type != 'email' && this.type != 'password' && this.type != 'url')
+            throw 'The type must be equals "text", "email", "password" or "url"';
     }
 
     setupValidation(){
