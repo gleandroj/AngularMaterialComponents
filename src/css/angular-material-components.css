@@ -154,5 +154,16 @@ label.action-button[disabled] > md-icon{
     color: rgba(0,0,0,0.38);
 }
 .is-error{
-    color: rgb(162,34,34) !important;
+    color: rgb(221,44,0) !important;
+}
+.htmlTextArea.is-error{
+    color: rgba(0,0,0,0.87) !important;
+    border-color: rgb(221,44,0) !important;
+    outline-color: rgb(221,44,0) !important;
+}
+.vertical-divider {
+  border-top-width: 0;
+  border-right-width: 1px;
+  border-right-style: solid;
+  height: 100%;
 }
