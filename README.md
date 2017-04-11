@@ -298,3 +298,26 @@ angular.module('myApp', ['ngMaterial', 'angular-material-simple-components']);
 
 ### Services
 
+#### <a name="CameraService"></a> CameraService
+
+`CameraService` is a service to use user webcam
+
+#### Methods
+
+### showCamera
+
+Show the dialog to take a picture
+
+**Parameters**
+
+| Param | Type | Details |
+| :--: | :--: | :--: |
+| options.title | string= | <p>dialog title</p>  |
+| options.height | string= | <p>dialog height</p>  |
+| options.width | string= | <p>dialog width</p>  |
+
+**Returns**
+
+| Param | Details |
+| :--: | :--: |
+| promise | <p>a promise that will return the photo (base 64)</p>  |
