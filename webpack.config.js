@@ -15,7 +15,10 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015']
+                }
             },
             {
                 test: /\.html$/,
@@ -30,5 +33,13 @@ module.exports = {
                 loader: "style-loader!css-loader"
             }
         ]
-    }
+    },
+    plugins:[
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin()
+    ]
 };
