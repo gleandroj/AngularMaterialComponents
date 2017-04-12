@@ -1,5 +1,7 @@
 # Angular Material Simple Components
 
+A module that simplify design elements based on Angular Material Design. With additional features that are similar to NgMessage to input validations.
+
 ## Demo
 Demo Hosted on github.io
 [Click Here](https://gleandroj.github.io/angular-material-simple-components/demo/)
