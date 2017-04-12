@@ -16117,8 +16117,12 @@ class HtmlTextAreaInputController extends __WEBPACK_IMPORTED_MODULE_0__AbstractI
 
     initialize() {
         super.initialize();
+
+        let element = document.getElementById('inputElement');
         this.range = document.createRange();
-        this.range.selectNode(document.querySelector('#inputElement'));
+        this.range.selectNode(element);
+
+        this.util.element(document).on('selectionchange', ($event, data) => this.scope.$apply());
     }
 
     setupValidation() {
@@ -16186,12 +16190,15 @@ class HtmlTextAreaInputController extends __WEBPACK_IMPORTED_MODULE_0__AbstractI
     }
 
     get selectedString() {
-        var html = null;
-        var sel = this.selection;
+        let html = null;
+        let sel = this.selection;
+
         if (sel && sel.rangeCount > 0) {
-            var container = document.createElement("div");
-            for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+
+            let container = document.createElement("div");
+            for (let i = 0, len = sel.rangeCount; i < len; ++i) {
                 let range = sel.getRangeAt(i);
+
                 if (this.range && this.range.isPointInRange(range.startContainer.parentNode, 1) && this.range.isPointInRange(range.endContainer.parentNode, 1)) {
                     container.appendChild(range.cloneContents());
                     html = container.innerHTML;
