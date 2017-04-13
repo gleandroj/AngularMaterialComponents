@@ -4,7 +4,7 @@
         <div flex layout-align="center center" layout-padding layout="row" >
 
             <label  ng-class="{'lostFocus': $component.isDisabled}" for="{{ $component.name }}" ng-disabled="$component.isDisabled" ng-show="$component.preview  && !$component.isDisabled" layout="column" layout-align="center center" >
-                <img ng-class="$component.overrideClass" ng-src="{{$component.value || $component.fallbackImg}}" ng-click="$component.isDisabled || $component.setTouched()" />
+                <img ng-class="[{'lostFocus': $component.isDisabled}, $component.overrideClass]" ng-src="{{$component.value || $component.fallbackImg}}" ng-click="$component.isDisabled || $component.setTouched()" />
             </label>
 
             <div ng-show="$component.preview && $component.isDisabled" layout="column" layout-align="center center" >
