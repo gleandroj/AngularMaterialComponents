@@ -22,6 +22,9 @@ class ImageInputController extends AbstractInputController {
             if(this.util.isUndefined(this.showButtons)) this.showButtons = true;
             if(this.util.isUndefined(this.preview)) this.preview = true;
             if(this.util.isUndefined(this.overrideClass)) this.overrideClass = '';
+            if(this.util.isUndefined(this.takePictureText)) this.takePictureText = 'Take a photo';
+            if(this.util.isUndefined(this.selPictureText)) this.selPictureText = 'Select a picture';
+            if(this.util.isUndefined(this.removePictureText)) this.removePictureText = 'Remove picture';
             this.inputElement.on('change', (e) => this.onImageSelected(e) && this.onChange());
         }, 1);
     }
@@ -79,7 +82,10 @@ export let ImageInputComponent = {
         allowWebcam: '<',
         overrideClass: '<',
         fallbackImg: '<',
-        name: '@'
+        name: '@',
+        takePictureText: '@',
+        selPictureText: '@',
+        removePictureText: '@'
     },
     controller: ImageInputController,
     controllerAs: '$component',

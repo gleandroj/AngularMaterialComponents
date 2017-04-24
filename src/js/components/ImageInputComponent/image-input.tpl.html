@@ -32,17 +32,17 @@
 
                 <md-button ng-hide="!$component.allowWebcam" style="margin-top: 5px;" class="md-raised md-icon-button hide show-gt-sm" ng-disabled="$component.isDisabled" ng-click="$component.showCamera() && $component.setTouched()">
                     <md-icon class="material-icons">add_a_photo</md-icon>
-                    <md-tooltip md-direction="right">Tirar uma foto</md-tooltip>
+                    <md-tooltip md-direction="right">{{ $component.takePictureText }}</md-tooltip>
                 </md-button>
 
                 <label flex for="{{ $component.name }}" style="margin-top: 5px;" md-ink-ripple class="md-button md-icon-button md-raised " ng-disabled="$component.isDisabled" ng-click="$component.isDisabled || $component.setTouched()">
                     <md-icon class="material-icons">folder_open</md-icon>
-                    <md-tooltip md-direction="right">Selecionar Imagem</md-tooltip>
+                    <md-tooltip md-direction="right">{{ $component.selPictureText }}</md-tooltip>
                 </label>
 
                 <md-button class="md-raised md-icon-button " style="margin-top: 5px;" ng-disabled="$component.isDisabled" ng-click="$component.clean() && $component.setTouched()">
                     <md-icon class="material-icons">delete</md-icon>
-                    <md-tooltip md-direction="right">Remover Imagem</md-tooltip>
+                    <md-tooltip md-direction="right">{{ $component.removePictureText }}</md-tooltip>
                 </md-button>
 
             </div>

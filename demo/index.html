@@ -12,6 +12,12 @@
         html, body {
             height: 100%;
         }
+
+        .test{
+            width: 45px !important;
+            height: 45px !important;
+            border-radius: 50% !important;
+        }
     </style>
 </head>
 
@@ -69,7 +75,7 @@
 
                     <span class="md-title">Image Input Card</span><br/>
 
-                    <image-input name="image" ng-model="image" is-required="true">
+                    <image-input override-class="'test'" name="image" ng-model="image" is-required="true">
                         <error-message error="required">This field is required.</error-message>
                         <error-message error="image">This field must be a valid image.</error-message>
                     </image-input>

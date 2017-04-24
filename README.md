@@ -215,7 +215,7 @@ angular.module('myApp', ['ngMaterial', 'angular-material-simple-components']);
 `imageInput` is a component to input Image
 
 ```
-<image-input [name=""] [ng-model=""] [is-disabled=""] [is-required=""] [preview=""]  [show-buttons=""] [allow-webcam=""] [override-class=""] [fallback-img=""] >
+<image-input [name=""] [ng-model=""] [is-disabled=""] [is-required=""] [preview=""]  [show-buttons=""] [allow-webcam=""] [override-class=""] [fallback-img=""] [take-picture-text=""] [sel-picture-text=""] [remove-picture-text=""] >
 ... 
 </image-input>
 ```
@@ -233,6 +233,9 @@ angular.module('myApp', ['ngMaterial', 'angular-material-simple-components']);
 | allow-webcam | boolean= | Allow take picture from user webcam. |
 | override-class | string= | Css class to put on preview image div. |
 | fallback-img | string= | Url of fallback image to present when user don't have a valid image or not selected one. |
+| take-picture-text | string= | Button text, default: "Take a photo". |
+| sel-picture-text | string= | Button text, default: "Select a picture". |
+| remove-picture-text | string= | Button text, default: "Remove picture". |
 
 #### <a name="timeInput"></a> timeInput
 
