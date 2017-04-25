@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/gleandroj/AngularMaterialComponents#readme",
   "dependencies": {
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "ngMask": "https://github.com/candreoliveira/ngMask.git"
   },
   "devDependencies": {
     "babel-loader": "^6.4.1",

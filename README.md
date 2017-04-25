@@ -264,7 +264,7 @@ angular.module('myApp', ['ngMaterial', 'angular-material-simple-components']);
 `dateInput` is a component to input date
 
 ```
-<date-input [name=""] [label=""] [icon=""] [ng-model=""] [is-disabled=""] [is-required=""] [max-date=""] [min-date=""] [filter-date=""] >
+<date-input [name=""] [label=""] [icon=""] [ng-model=""] [is-disabled=""] [is-required=""] [max-date=""] [min-date=""] [filter-date=""] [date-mask=""]>
 ... 
 </date-input>
 ```
@@ -281,6 +281,7 @@ angular.module('myApp', ['ngMaterial', 'angular-material-simple-components']);
 | max-date | date= | The max date allowed in input. |
 | min-date | date= | The min date allowed in input. |
 | filter-date | function= | The function to used to filter the allowed dates in the input, ```function(testDate : date) : boolean```. |
+| date-mask | string= | String mask based on [ngMask](#https://github.com/candreoliveira/ngMask), default: '19/39/9999'. |
 
 #### <a name="mdPagination"></a> mdPagination
 

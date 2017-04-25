@@ -8,8 +8,9 @@ import DateInputTemplate from './date-input.tpl.html';
 
 class DateInputController extends AbstractInputController {
 
-    constructor($scope, AngularUtilService) {
+    constructor($scope, AngularUtilService, $mdDateLocale) {
         super($scope, AngularUtilService);
+        this.dateService = $mdDateLocale;
     }
 
     $onInit(){
@@ -33,17 +34,25 @@ class DateInputController extends AbstractInputController {
 
         /*Fix problem when model does not have date (initialize it with today date)*/
         this.util.timeout(()=> { this.onChange(); }, 0);
+
+        /*Add mask to mdDatePicker*/
+        this.scope.$watch(() => this.maskedDate, ()=>{
+            this.validate();
+        });
     }
 
     setupValidation() {
         super.setupValidation();
+        this.addValidator('valid', ()=>{
+            return this.dateService.isDateComplete(this.maskedDate ? this.maskedDate : '') && moment(this.dateService.parseDate(this.maskedDate)).isValid();
+        });
     }
 
     onChange(){
         /*Update model val when input change*/
         this.model.$setViewValue(this.value != null ? moment(this.value).format('YYYY-MM-DD HH:mm:ss') : '');
         /*Add Mask to datepicker*/
-        this.maskDate = this.value != null ? moment(this.value).format('DD/MM/YYYY') : '';
+        this.maskedDate = this.value != null ? this.dateService.formatDate(this.value) : '';
         /*Validate input*/
         this.validate();
     }
@@ -57,13 +66,9 @@ class DateInputController extends AbstractInputController {
         /*Try parse date string, if not return today date*/
         return m.isValid() ? m.toDate() : new Date();
     }
-
-    get errors(){
-        return this.form.$error;
-    }
 }
 
-DateInputController.$inject = ['$scope', 'AngularUtilService'];
+DateInputController.$inject = ['$scope', 'AngularUtilService', '$mdDateLocale'];
 
 export let DateInputComponent = {
     selector: 'dateInput',
@@ -73,7 +78,8 @@ export let DateInputComponent = {
     bindings: Object.assign({
         maxDate: '<',
         minDate: '<',
-        filterDate:'<'
+        filterDate:'<',
+        dateMask:'@'
     }, AbstractInputComponent.bindings),
     controller: DateInputController,
     controllerAs: '$component',
