@@ -63,7 +63,6 @@ export class AbstractInputController {
     }
 
     set value(value){
-        //if(!this.dirty && this.util.isDefined(value) && this.initialized) this.setDirty();
         this._value = value;
     }
 
