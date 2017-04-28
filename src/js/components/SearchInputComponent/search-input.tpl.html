@@ -1,5 +1,5 @@
 <ng-form name="_form" ng-cloak>
-        <div class="search-card" layout-padding layout-margin layout="row" md-whiteframe="2" layout-align=" center">
+        <div layout-padding layout-margin layout="row" md-whiteframe="2" layout-align=" center">
             <md-input-container md-no-float class="" md-is-error="$component.invalid && ($component.touched || $component.dirty)" flex="95">
                 <input type="{{ $component.type }}"
                        placeholder="{{$component.label}}"
@@ -28,10 +28,10 @@
                 </div>
             </md-input-container>
 
-                <md-button style="align-self: center;" ng-if="($component.value == '' || $component.value == null)" ng-click="$component.focus($component.name);" class="md-icon-button" aria-label="search" ng-disabled="$component.isDisabled">
+                <md-button ng-show="($component.value == '' || $component.value == null)" ng-click="$component.focus($component.name);" class="md-icon-button search-btn" aria-label="search" ng-disabled="$component.isDisabled">
                     <md-icon  class="material-icons" >search</md-icon>
                 </md-button>
-                <md-button style="align-self: center;" ng-if="!($component.value == '' || $component.value == null)" ng-click="$component.clean()" class="md-icon-button" aria-label="close" ng-disabled="$component.isDisabled">
+                <md-button ng-show="!($component.value == '' || $component.value == null)" ng-click="$component.clean()" class="md-icon-button search-btn" aria-label="close" ng-disabled="$component.isDisabled">
                     <md-icon  class="material-icons" >close</md-icon>
                 </md-button>
         </div>
