@@ -1,6 +1,6 @@
 {
   "name": "angular-material-simple-components",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "This include simplification of angular material components",
   "main": "index.js",
   "scripts": {
