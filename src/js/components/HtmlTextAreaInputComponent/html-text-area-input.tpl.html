@@ -87,7 +87,7 @@
                     contenteditable="{{ !$component.isDisabled && !$component.preview }}"
                     ng-disabled="$component.isDisabled"
 
-                    ng-focus="(haveFocus = true) && ($component.isDisabled || $component.setTouched())"
+                    ng-focus="($component.isDisabled || (haveFocus = true)) && ($component.isDisabled || $component.setTouched())"
                     ng-blur="haveFocus = false"
                     ng-click="$component.isDisabled || $component.setTouched()"
 
