@@ -43,6 +43,16 @@ export class AbstractInputController {
         this.model.$validators = this.form[this.name].$validators;
         /*Override required validator*/
         this.addValidator('required', (modelValue, viewValue) => !this.isRequired || !this.model.$isEmpty(viewValue));
+        /*Override pattern validator*/
+        if(!this.util.isUndefined(this.pattern))
+            this.model.$parsers.push((value) => {
+                if(value != '' && value != null)
+                    this.model.$setValidity('pattern', this.pattern.test(this.model.$viewValue));
+                else
+                    this.model.$setValidity('pattern', true);
+                return value;
+            });
+            //this.addValidator('pattern', (modelValue, viewValue) => this.pattern.test(viewValue));
         /*Validate*/
         this.validate();
     }
@@ -121,6 +131,7 @@ export class AbstractInputController {
 
 export let AbstractInputComponent = {
     bindings: {
+        pattern: '<',
         modelOptions: '<',
         isDisabled: '<',
         isRequired: '<',
