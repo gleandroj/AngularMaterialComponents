@@ -14,7 +14,7 @@
                        md-mask="{{ $component.dateMask || '19/39/9999' }}" 
                        
                        ng-model="$component.value"
-                       ng-model-options="{allowInvalid: true, debounce: 250}"
+                       ng-model-options="$component.modelOptions"
                        ng-change="$component.onChange()"
                        
                        ng-blur="$component.onChange()"

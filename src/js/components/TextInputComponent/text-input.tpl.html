@@ -10,7 +10,7 @@
 
                 ng-model="$component.value"
                 ng-change="$component.onChange()"
-                ng-model-options="{allowInvalid: true, debounce: 250}"
+                ng-model-options="$component.modelOptions"
 
                 ng-required="$component.isRequired"
                 ng-disabled="$component.isDisabled"

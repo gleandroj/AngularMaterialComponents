@@ -9,6 +9,7 @@ export class AbstractInputController {
         this.util = AngularUtilService;
         this.value = null;
         this.initialized = false;
+        this.modelOptions = null;
     }
 
     $onInit(){
@@ -29,6 +30,7 @@ export class AbstractInputController {
     initialize(){
         /*Initialize default var's*/
         if(this.util.isUndefined(this.isDisabled)) this.isDisabled = false;
+        if(this.util.isUndefined(this.modelOptions) || this.modelOptions == null) this.modelOptions = {allowInvalid: true, debounce: 150};
         if(this.util.isUndefined(this.isRequired)) this.isRequired = false;
         if(this.util.isUndefined(this.noFloat)) this.noFloat = false;
         if(this.util.isUndefined(this.minLength)) this.minLength = 0;
@@ -119,6 +121,7 @@ export class AbstractInputController {
 
 export let AbstractInputComponent = {
     bindings: {
+        modelOptions: '<',
         isDisabled: '<',
         isRequired: '<',
         noFloat: '<',
