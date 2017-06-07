@@ -32,7 +32,7 @@
 
                 <div layout="column" flex-xs="100" flex-sm="100" flex-gt-md="40">
                     <span class="md-title">Text And Number Inputs</span><br/>
-
+                    
                     <text-input icon="text_fields" label="Text Input Sample" ng-model="input" is-required="true" max-length="50">
                         <error-message error="required">This field is required.</error-message>
                     </text-input>
@@ -42,7 +42,7 @@
                         <error-message error="email">This field must be a valid email address.</error-message>
                     </text-input>
 
-                    <text-input icon="security" type="password" label="Password Input Sample" ng-model="password" is-required="true" max-length="50">
+                    <text-input  icon="security" type="password" label="Password Input Sample" ng-model="password" is-required="true" max-length="50">
                         <error-message error="required">This field is required.</error-message>
                     </text-input>
 
@@ -63,14 +63,18 @@
 
                 <span flex="10"></span>
 
-                <div layout="column" flex-xs="100" flex-sm="100" flex-gt-md="40" ng-init="date = '1995-04-29 00:00:00'">
+                <div layout="column" flex-xs="100" flex-sm="100" flex-gt-md="40" ng-init="date = '1995-04-29 00:00:00'"><!--ng-init="date = '1995-04-29 00:00:00'"-->
                     <span class="md-title">Date and time Input</span><br/><br/>
-                    <date-input ng-model="date" label="Date Input Sample" is-required="true">
+                    <date-input ng-model="date" label="Date Input Sample" is-required="true" >
                         <error-message error="required">This field is required.</error-message>
                         <error-message error="valid">This field is invalid.</error-message>
                     </date-input>
 
-                    <time-input ng-model="date" label="Time Input Sample" is-required="true">
+                    {{ date }}
+
+                    <br/>
+
+                    <time-input ng-model="time" label="Time Input Sample" is-required="true">
                         <error-message error="required">This field is required.</error-message>
                     </time-input>
 
@@ -123,29 +127,32 @@
 
     <!-- Angular Material Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.js"></script>
+    
+    <!-- Angular Material Components -->
     <script src="./../dist/angular-material-components.js"></script>
 
     <!-- Your application bootstrap  -->
     <script type="text/javascript">
         angular.module('amc-test', ['angular-material-simple-components'])
         /*Override default date format*/
-        /* date-mask="39/19/9999"    
+
         .config(function($mdDateLocaleProvider){
                 
-                $mdDateLocaleProvider.formatDate = function(date) {
-                    console.log(("0" + date.getDate()).slice(-2) + '/' + ("0" + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear());
+                /*$mdDateLocaleProvider.formatDate = function(date) {
                     return ("0" + date.getDate()).slice(-2) + '/' + ("0" + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear();
                 };
+
                 $mdDateLocaleProvider.parseDate = function(date) {
-                    var dtA = date.split('/');
-                    var day = dtA[0],
+                    console.log(date);
+                    var dtA = date.split('-');
+
+                    var day = dtA[2].split(' ')[0],
                         mnt = dtA[1],
-                        yr  = dtA[2];
-                        
+                        yr  = dtA[0];
+
                     return new Date(yr, mnt-1, day, 0, 0, 0, 0);
-                };                
+                };*/            
             });
-        */
     </script>
 </body>
 

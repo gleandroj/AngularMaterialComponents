@@ -1,7 +1,9 @@
 <ng-form name="_form" flex-gt-xs  ng-cloak>
     <md-input-container flex="auto" class="md-block date-picker-row" md-no-float="$component.noFloat" ng-class="{'md-input-invalid': $component.invalid && ($component.dirty || $component.touched)}">
-        <label>{{ $component.label }}</label>
+        <!--<label></label>-->
         <md-datepicker
+                       placeholder="{{ $component.label }}"
+
                        name="{{ $component.name }}"
                        id="{{ $component.name }}"
 
@@ -10,21 +12,21 @@
                        ng-required="$component.isRequired"
                        ng-disabled="$component.isDisabled"
 
-                       md-date="$component.maskedDate"
-                       md-mask="{{ $component.dateMask || '19/39/9999' }}" 
-                       
                        ng-model="$component.value"
                        ng-model-options="$component.modelOptions"
                        ng-change="$component.onChange()"
                        
-                       ng-blur="$component.onChange()"
-
                        ng-focus="$component.isDisabled || $component.setTouched()"
                        ng-click="$component.isDisabled || $component.setTouched()">
         </md-datepicker>
 
-        <div ng-messages="$component.errors" ng-show="$component.dirty || $component.touched" style="margin-left: -15px;">
+        <div ng-messages="_form.$error" ng-show="$component.dirty || $component.touched" style="margin-left: -15px;">
             <ng-transclude></ng-transclude>
         </div>
     </md-input-container>
 </ng-form>
+<!-- md-date="$component.maskedDate"
+                       md-mask="{{ $component.dateMask || '19/39/9999' }}" 
+                       
+                       ng-blur="$component.onChange()"
+-->
