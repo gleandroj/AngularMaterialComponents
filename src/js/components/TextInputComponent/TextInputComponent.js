@@ -10,27 +10,27 @@ class TextInputController extends AbstractInputController {
     constructor($scope, AngularUtilService) {
         super($scope, AngularUtilService);
         this.type = 'text';
-        this.checkMatch = false;
-        this.match = null;
     }
 
     initialize(){
         super.initialize();
-
+        if (this.util.isUndefined(this.checkMatch)) this.checkMatch = false;
         if(this.type != 'text' && this.type != 'email' && this.type != 'password' && this.type != 'url')
             throw 'The type must be equals "text", "email", "password" or "url"';
     }
 
     setupValidation(){
         super.setupValidation();
-        if(this.util.isDefined(this.checkMatch) && this.checkMatch){
-            this.addValidator('match', () => TextInputController.checkMatchFn(this.model.$viewValue, this.match));
-        }
-        this.validate();
     }
 
-    static checkMatchFn(value1, value2){
-        return ((value1 === null || value1 === "" || value1 === undefined) && (value2 === null || value2 === "" || value2 === undefined)) || (value1 === value2);
+    validate(){
+        super.validate();
+        if(this.checkMatch)
+            this.checkMatchFn(this.model.$viewValue, this.match);
+    }
+
+    checkMatchFn(value1, value2){
+        this.model.$setValidity('match', ((value1 == null || value1 == "") && (value2 == null || value2 == "")) || (value1 == value2));
     }
 }
 
@@ -45,6 +45,7 @@ export let TextInputComponent = {
         checkMatch: '<',
         match: '<'
     }, AbstractInputComponent.bindings),
+    bindToController: true,
     controller: TextInputController,
     controllerAs: '$component',
     template: TextInputTemplate,

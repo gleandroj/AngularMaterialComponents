@@ -23,7 +23,7 @@
 
 <body ng-app="amc-test" ng-cloak>
 
-    <form name="myForm" layout="row" layout-align="space-around center">
+    <form name="myForm" layout="row" layout-align="space-around center" ng-controller="Ctrl">
 
         <md-content flex-gt-md="90" flex-gt-lg="80" layout="column" flex style="overflow-y: auto;"  md-whiteframe="4" layout-padding  layout-margin>
             <h1  style="align-self: center;">Demo</h1>
@@ -46,8 +46,7 @@
                         <error-message error="required">This field is required.</error-message>
                     </text-input>
 
-                    <text-input icon="security" type="password" label="Password Match Input Sample" ng-model="password2" is-required="true" max-length="50"
-                        match="password" check-match="true">
+                    <text-input icon="security" type="password" label="Password Match Input Sample" ng-model="password2" is-required="true" max-length="50" match="password" check-match="true">
                         <error-message error="required">This field is required.</error-message>
                         <error-message error="match">The fields not match.</error-message>
                     </text-input>
@@ -63,15 +62,12 @@
 
                 <span flex="10"></span>
 
-                <div layout="column" flex-xs="100" flex-sm="100" flex-gt-md="40" ng-init="date = '1995-04-29 00:00:00'"><!--ng-init="date = '1995-04-29 00:00:00'"-->
+                <div layout="column" flex-xs="100" flex-sm="100" flex-gt-md="40" ><!--ng-init="date = '1995-04-29 00:00:00'"-->
                     <span class="md-title">Date and time Input</span><br/><br/>
                     <date-input ng-model="date" label="Date Input Sample" is-required="true" >
                         <error-message error="required">This field is required.</error-message>
                         <error-message error="valid">This field is invalid.</error-message>
                     </date-input>
-
-                    {{ date }}
-
                     <br/>
 
                     <time-input ng-model="time" label="Time Input Sample" is-required="true">
@@ -134,8 +130,10 @@
     <!-- Your application bootstrap  -->
     <script type="text/javascript">
         angular.module('amc-test', ['angular-material-simple-components'])
+        .controller('Ctrl', function($scope){
+            
+        })
         /*Override default date format*/
-
         .config(function($mdDateLocaleProvider){
                 
                 /*$mdDateLocaleProvider.formatDate = function(date) {
